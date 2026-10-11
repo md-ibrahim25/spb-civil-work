@@ -1,26 +1,104 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* Brand colours: navy and red from the client's flyer, sky/cyan for water. */
+@theme {
+  --color-brand: #0b3d91;
+  --color-brand-dark: #072a63;
+  --color-night: #06142b;
+  --color-water: #38bdf8;
+  --color-aqua: #22d3ee;
+  --color-water-light: #e0f2fe;
+  --color-alert: #e11d48;
+  --color-alert-dark: #be123c;
+  --color-ink: #0b1f3a;
+  --color-muted: #475569;
+  --color-surface: #f4f8fc;
+  --color-whatsapp: #16a34a;
+  --color-whatsapp-dark: #15803d;
+
+  /* --ff-* variables are set by next/font in app/layout.tsx */
+  --font-sans: var(--ff-jakarta), var(--ff-kannada), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--ff-archivo), var(--ff-jakarta), var(--ff-kannada), sans-serif;
+  --font-kannada: var(--ff-kannada), var(--ff-jakarta), sans-serif;
+
+  --animate-marquee: marquee 40s linear infinite;
+  --animate-float: float 6s ease-in-out infinite;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@keyframes marquee {
+  to {
+    transform: translateX(-50%);
   }
 }
 
+@keyframes float {
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes reveal {
+  from {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+  /* Room for the sticky header when jumping to #anchors. */
+  scroll-padding-top: 6rem;
+}
+
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: #ffffff;
+  color: var(--color-ink);
+  /* Slightly larger base text: easier to read on phones. */
+  font-size: 1.0625rem;
+}
+
+:focus-visible {
+  outline: 3px solid var(--color-water);
+  outline-offset: 2px;
+}
+
+@utility font-display {
+  font-family: var(--font-display);
+  letter-spacing: -0.025em;
+}
+
+/* Faint grid lines for dark hero backgrounds. */
+@utility bg-grid {
+  background-image:
+    linear-gradient(to right, rgb(255 255 255 / 0.06) 1px, transparent 1px),
+    linear-gradient(to bottom, rgb(255 255 255 / 0.06) 1px, transparent 1px);
+  background-size: 48px 48px;
+  mask-image: radial-gradient(ellipse at 50% 0%, black 30%, transparent 75%);
+}
+
+@utility text-gradient {
+  background: linear-gradient(100deg, var(--color-aqua), var(--color-water) 45%, #a5f3fc);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Fade sections in as they scroll into view (only where the browser supports it). */
+@supports (animation-timeline: view()) {
+  .reveal {
+    animation: reveal linear both;
+    animation-timeline: view();
+    animation-range: entry 0% entry 30%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .reveal,
+  .animate-marquee,
+  .animate-float {
+    animation: none !important;
+  }
 }
