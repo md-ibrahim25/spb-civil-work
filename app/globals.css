@@ -16,7 +16,6 @@
   --color-whatsapp: #16a34a;
   --color-whatsapp-dark: #15803d;
 
-  /* --ff-* variables are set by next/font in app/layout.tsx */
   --font-sans: var(--ff-jakarta), var(--ff-kannada), ui-sans-serif, system-ui, sans-serif;
   --font-display: var(--ff-archivo), var(--ff-jakarta), var(--ff-kannada), sans-serif;
   --font-kannada: var(--ff-kannada), var(--ff-jakarta), sans-serif;
@@ -42,6 +41,13 @@
     opacity: 0;
     transform: translateY(28px);
   }
+}
+
+:root {
+  /* Self-hosted fonts imported in app/layout.tsx */
+  --ff-jakarta: "Plus Jakarta Sans Variable";
+  --ff-archivo: "Archivo Variable";
+  --ff-kannada: "Noto Sans Kannada Variable";
 }
 
 html {

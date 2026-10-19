@@ -1,27 +1,14 @@
 import type { Metadata, Viewport } from "next";
-import { Archivo, Noto_Sans_Kannada, Plus_Jakarta_Sans } from "next/font/google";
 import { ContactBar } from "@/components/ContactBar";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { TopBar } from "@/components/TopBar";
 import { site } from "@/content/site";
+// Fonts are bundled with the site (not fetched from Google at build time).
+import "@fontsource-variable/plus-jakarta-sans";
+import "@fontsource-variable/archivo";
+import "@fontsource-variable/noto-sans-kannada";
 import "./globals.css";
-
-const jakarta = Plus_Jakarta_Sans({
-  variable: "--ff-jakarta",
-  subsets: ["latin"],
-});
-
-const archivo = Archivo({
-  variable: "--ff-archivo",
-  subsets: ["latin"],
-});
-
-const kannada = Noto_Sans_Kannada({
-  variable: "--ff-kannada",
-  subsets: ["kannada"],
-  weight: ["400", "600"],
-});
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
@@ -73,7 +60,7 @@ const localBusiness = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="en" className={`${jakarta.variable} ${archivo.variable} ${kannada.variable} h-full antialiased`}>
+    <html lang="en" className="h-full antialiased">
       <body className="flex min-h-full flex-col font-sans">
         <a
           href="#main"
