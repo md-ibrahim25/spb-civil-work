@@ -74,6 +74,23 @@ These are defaults, marked "placeholder" in the content files:
 - [ ] FAQ answers (job duration, what customers need to do) and the "1–3 hrs" figure on the home page
 - [ ] Whether solar panel cleaning / deep cleaning (listed on the reference site) should be added
 
+## Customer reviews
+
+Customers leave a star rating and review at `/reviews` (linked from the menu, home page and
+service pages). **Nothing appears on the site until the client approves it.**
+
+- **Approve, hide or delete reviews:** open `https://spbcivilworks.com/admin/reviews`. The browser
+  asks for a login: any username, password = the `ADMIN_PASSWORD` environment variable.
+- **Where they're stored:** Upstash Redis, connected through Vercel → Storage
+  (`UPSTASH_REDIS_REST_URL` / `KV_REST_API_URL` env vars). Code: `lib/reviews.ts`.
+- **Spam protection:** a hidden bot trap field and a limit of 3 reviews per IP address per day.
+- **Privacy:** the optional mobile number is only shown on the admin page, never publicly.
+- **Google reviews:** once the Google Business Profile exists, paste its "Ask for reviews" link into
+  `googleReviewUrl` in `content/site.ts` to show a "Review us on Google" button.
+- Without the database or `ADMIN_PASSWORD`, the site still works: the form says reviews aren't
+  open yet, and `/admin` returns "not found".
+- Only real customer reviews: never add made-up ones (it's misleading and against Google's policies).
+
 ## SEO
 
 - Every page has its own title, description, canonical URL and WhatsApp/Facebook share image

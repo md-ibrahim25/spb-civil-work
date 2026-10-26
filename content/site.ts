@@ -46,6 +46,10 @@ export const site = {
     mapQuery: "Muthsandra, Varthur, Bengaluru 560087",
   },
 
+  // "Write a review" link from the client's Google Business Profile
+  // (Profile → Ask for reviews → copy link). Leave null until the profile exists.
+  googleReviewUrl: null as string | null,
+
   // Names of the areas we serve (details in content/areas.ts).
   serviceAreas: areas.map((a) => a.name),
 
@@ -54,6 +58,7 @@ export const site = {
     { label: "Services", href: "/services" },
     { label: "Prices", href: "/pricing" },
     { label: "Our Work", href: "/gallery" },
+    { label: "Reviews", href: "/reviews" },
     { label: "About", href: "/about" },
     { label: "Contact", href: "/contact" },
   ],

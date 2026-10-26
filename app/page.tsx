@@ -4,6 +4,7 @@ import { BeforeAfter } from "@/components/BeforeAfter";
 import { AreaMarquee, Audiences, BookingSteps, CTABanner, Faq, ProcessSteps, ServiceBento, TrustStrip } from "@/components/Blocks";
 import { ArrowIcon, CheckIcon, ClockIcon, DropIcon, PhoneIcon, PinIcon, ShieldIcon, SparkleIcon, WhatsAppIcon } from "@/components/Icons";
 import { PriceCalculator } from "@/components/PriceCalculator";
+import { ReviewsSection } from "@/components/Reviews";
 import { JsonLd } from "@/components/JsonLd";
 import { Container, DarkBackdrop, SectionHeading } from "@/components/Section";
 import { faqs } from "@/content/faq";
@@ -233,6 +234,8 @@ export default function Home() {
           </div>
         </Container>
       </DarkBackdrop>
+
+      <ReviewsSection />
 
       {/* Who we work for */}
       <section className="py-20 sm:py-28">

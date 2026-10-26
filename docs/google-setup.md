@@ -29,6 +29,8 @@ This is what puts the business on Google Maps and in the "near me" results.
    - Set opening hours to match the website.
    - Turn on **WhatsApp chat** or messaging if offered.
 8. Ask every happy customer for a **Google review** (share the review link on WhatsApp after each job). Reviews are the strongest local ranking factor.
+9. Copy the review link (Profile → **Ask for reviews**) and paste it into `googleReviewUrl` in
+   `content/site.ts`. The website then shows a **Review us on Google** button next to its own review form.
 
 Keep the name, address and phone **exactly the same** everywhere (website, Google, JustDial,
 Facebook). Mismatches hurt rankings.

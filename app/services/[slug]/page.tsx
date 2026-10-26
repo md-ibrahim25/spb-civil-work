@@ -5,6 +5,7 @@ import { CTABanner, Faq, ProcessSteps } from "@/components/Blocks";
 import { ArrowIcon, CheckIcon, PhoneIcon, PinIcon, ServiceIconSvg, WhatsAppIcon } from "@/components/Icons";
 import { JsonLd } from "@/components/JsonLd";
 import { PriceTable } from "@/components/PriceTable";
+import { ReviewsSection } from "@/components/Reviews";
 import { Container, PageHero, SectionHeading } from "@/components/Section";
 import { areas } from "@/content/areas";
 import { sumpPrices, tankPrices } from "@/content/pricing";
@@ -150,6 +151,8 @@ export default async function ServicePage({ params }: Props) {
           </div>
         </Container>
       </section>
+
+      <ReviewsSection service={slug} hideWhenEmpty className="bg-surface" />
 
       <section className="py-16">
         <Container className="grid gap-10 lg:grid-cols-2">
