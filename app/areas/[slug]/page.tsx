@@ -7,7 +7,9 @@ import { JsonLd } from "@/components/JsonLd";
 import { PriceCalculator } from "@/components/PriceCalculator";
 import { Container, PageHero, SectionHeading } from "@/components/Section";
 import { areas, getArea } from "@/content/areas";
-import { services } from "@/content/services";
+import { images } from "@/content/images";
+import { prices } from "@/content/pricing";
+import { cleaningProcess, services } from "@/content/services";
 import { breadcrumbSchema, pageMetadata } from "@/lib/seo";
 
 type Props = { params: Promise<{ slug: string }> };
@@ -22,7 +24,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!area) return {};
   return pageMetadata({
     title: `Sump & Tank Cleaning in ${area.name}, Bengaluru`,
-    description: `Sump and tank cleaning in ${area.name}, Bengaluru: sludge removal, disinfection, pressure wash and drying. Fixed prices from ₹500. Book on WhatsApp.`,
+    description: `Sump and tank cleaning in ${area.name}, Bengaluru: sludge removal, disinfection, pressure wash and drying. Fixed prices from ${prices.from}. Book on WhatsApp.`,
     path: `/areas/${slug}`,
     image: `/areas/${slug}/opengraph-image`,
   });
@@ -39,7 +41,7 @@ export default async function AreaPage({ params }: Props) {
   return (
     <>
       <PageHero
-        image="/images/tank-cleaning.jpg"
+        image={images.hero.tankCleaning}
         eyebrow={`Serving ${area.name}`}
         title={`Sump & tank cleaning in ${area.name}`}
         titleKn={area.nameKn}
@@ -52,7 +54,7 @@ export default async function AreaPage({ params }: Props) {
             <SectionHeading
               eyebrow={`In ${area.name}`}
               title={`Clean, safe water for homes in ${area.name}`}
-              intro={`Our team comes to your home or building in ${area.name} with a sludge pump, wet/dry vacuum and pressure washer. We clean the sump or tank in 4 steps (sludge removal, anti-bacterial spray, pressure wash and drying) at the same fixed prices across our service area.`}
+              intro={`Our team comes to your home or building in ${area.name} with a sludge pump, wet/dry vacuum and pressure washer. We clean the sump or tank in ${cleaningProcess.length} steps (${cleaningProcess.map((s) => s.title.toLowerCase()).join(", ")}) at the same fixed prices across our service area.`}
             />
             <div className="mt-10">
               <BookingSteps />

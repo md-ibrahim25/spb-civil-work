@@ -1,15 +1,15 @@
 "use client";
 
 import { useId, useState } from "react";
-import { formatRupees, sizeHelp, sumpPrices, tankPrices } from "@/content/pricing";
+import { formatRupees, prices, sizeHelp, sumpPrices, tankPrices } from "@/content/pricing";
 import { whatsappUrl } from "@/lib/whatsapp";
 import { ServiceIconSvg, WhatsAppIcon } from "./Icons";
 
 const OTHER = "other";
 
 const kinds = {
-  sump: { label: "Sump", hint: "Underground", icon: "sump", rows: sumpPrices, otherLabel: "Other size / above 12,000 L" },
-  tank: { label: "Tank", hint: "Overhead", icon: "tank", rows: tankPrices, otherLabel: "Other size / above 3,000 L" },
+  sump: { label: "Sump", hint: "Underground", icon: "sump", rows: sumpPrices, otherLabel: `Other size / above ${prices.largestSump}` },
+  tank: { label: "Tank", hint: "Overhead", icon: "tank", rows: tankPrices, otherLabel: `Other size / above ${prices.largestTank}` },
 } as const;
 
 type Kind = keyof typeof kinds;
@@ -100,7 +100,7 @@ export function PriceCalculator() {
               <p className="text-sm text-slate-300">Your price</p>
               <p className="font-display text-5xl font-bold leading-none">{formatRupees(row.price)}</p>
             </div>
-            <p className="max-w-[9rem] text-right text-xs text-slate-300">All 4 cleaning steps included</p>
+            <p className="max-w-[9rem] text-right text-xs text-slate-300">Every cleaning step included</p>
           </>
         ) : (
           <div>

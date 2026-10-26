@@ -1,4 +1,5 @@
 import { areas } from "./areas";
+import { images } from "./images";
 
 // Business details used across the whole site. Edit here to update everywhere.
 // Values marked "placeholder" / "default" are awaiting confirmation from the client.
@@ -77,7 +78,7 @@ export const bookingSteps = [
 ];
 
 // Full-width photo behind the home hero. Set to null for a plain dark background.
-export const heroImage: string | null = "/images/tank-cleaning.jpg";
+export const heroImage: string | null = images.hero.tankCleaning;
 
 export const directionsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
   site.contact.mapQuery,

@@ -1,3 +1,6 @@
+import { images } from "./images";
+import { prices } from "./pricing";
+
 // Services from the client's flyer. `icon` picks an illustration in components/Icons.tsx.
 
 export type ServiceIcon = "sump" | "tank" | "pipe" | "grout" | "paint" | "toilet";
@@ -23,7 +26,7 @@ export const services: Service[] = [
     titleKn: "ನೀರಿನ ಸಂಪ್ ಶುಚಿಗೊಳಿಸುವಿಕೆ",
     icon: "sump",
     category: "Cleaning",
-    image: "/images/tank-cleaning.jpg",
+    image: images.sumps.tiledAfter,
     summary:
       "Complete cleaning of underground water sumps: sludge removal, disinfection, pressure wash and drying.",
     points: [
@@ -31,7 +34,7 @@ export const services: Service[] = [
       "Walls and floor scrubbed and pressure washed",
       "Disinfected with potassium permanganate and chlorine",
     ],
-    price: "From ₹1,000",
+    price: `From ${prices.sumpFrom}`,
   },
   {
     slug: "tank-cleaning",
@@ -39,15 +42,15 @@ export const services: Service[] = [
     titleKn: "ಟ್ಯಾಂಕ್ ಶುಚಿಗೊಳಿಸುವಿಕೆ",
     icon: "tank",
     category: "Cleaning",
-    image: "/images/tank-cleaning.jpg",
+    image: images.tanks.blueAfter,
     summary:
-      "Plastic (Sintex-type) and concrete overhead tanks cleaned and disinfected, 500 L and up.",
+      `Plastic (Sintex-type) and concrete overhead tanks cleaned and disinfected, 500 L to ${prices.largestTank}.`,
     points: [
       "Dirt and algae removed with a wet/dry vacuum",
       "Anti-bacterial spray on all inside surfaces",
       "Rinsed and dried before refilling",
     ],
-    price: "From ₹500",
+    price: `From ${prices.tankFrom}`,
   },
   {
     slug: "pipe-acid-wash",
@@ -70,7 +73,7 @@ export const services: Service[] = [
     titleKn: "ಜಲನಿರೋಧಕ ಗ್ರೌಟಿಂಗ್",
     icon: "grout",
     category: "Waterproofing",
-    image: "/images/waterproofing.jpg",
+    image: images.hero.waterproofing,
     summary:
       "Seals cracks and joints in sumps, tanks, terraces and bathrooms to stop leaks and seepage.",
     points: [
@@ -86,7 +89,7 @@ export const services: Service[] = [
     titleKn: "ಜಲನಿರೋಧಕ ಬಣ್ಣ",
     icon: "paint",
     category: "Waterproofing",
-    image: "/images/waterproofing.jpg",
+    image: images.hero.waterproofing,
     summary:
       "Waterproof coatings for terraces, walls, sumps and tanks to keep moisture out for years.",
     points: [
@@ -102,7 +105,7 @@ export const services: Service[] = [
     titleKn: "ಶೌಚಾಲಯ ಶುಚಿಗೊಳಿಸುವಿಕೆ",
     icon: "toilet",
     category: "Cleaning",
-    image: "/images/deep-cleaning.jpg",
+    image: images.hero.deepCleaning,
     summary:
       "Deep cleaning of toilets and bathrooms: stain, scale and odour removal.",
     points: [
@@ -114,27 +117,37 @@ export const services: Service[] = [
   },
 ];
 
-// The 4-step cleaning procedure from the client's price list.
+// The cleaning procedure from the client's rate chart ("Materials use for sump cleaning").
 export const cleaningProcess = [
+  {
+    title: "De-watering",
+    titleKn: "ನೀರು ಖಾಲಿ ಮಾಡುವುದು",
+    text: "Remaining water is pumped out so the whole sump or tank can be reached.",
+  },
   {
     title: "Sludge removal",
     titleKn: "ಕೆಸರು ತೆಗೆಯುವಿಕೆ",
-    text: "Water drained and all sludge, silt and debris pumped out.",
+    text: "All sludge, silt and debris is removed from the floor and corners.",
   },
   {
     title: "Anti-bacterial spray",
     titleKn: "ಬ್ಯಾಕ್ಟೀರಿಯಾ ನಿರೋಧಕ ಸ್ಪ್ರೇ",
-    text: "Potassium permanganate and bleaching powder (chlorine) kill germs and algae.",
+    text: "Potassium permanganate, bleaching powder and chlorine kill germs and algae.",
   },
   {
     title: "Pressure wash",
     titleKn: "ಪ್ರೆಶರ್ ವಾಶ್",
-    text: "High-pressure water jet cleans every wall, corner and the floor.",
+    text: "A high-pressure water jet cleans every wall, corner and the floor.",
+  },
+  {
+    title: "Vacuum cleaning",
+    titleKn: "ವ್ಯಾಕ್ಯೂಮ್ ಕ್ಲೀನಿಂಗ್",
+    text: "A wet/dry vacuum lifts out the dirty water and fine particles left behind.",
   },
   {
     title: "Drying",
     titleKn: "ಒಣಗಿಸುವಿಕೆ",
-    text: "Excess water removed and the sump or tank left dry, ready to refill.",
+    text: "The sump or tank is left clean and dry, ready to refill.",
   },
 ];
 

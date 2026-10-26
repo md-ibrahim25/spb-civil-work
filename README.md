@@ -40,19 +40,27 @@ All business details live in `content/`, so you rarely need to touch components:
 - `content/service-details.ts`: text, SEO title/description and FAQs for each service page
 - `content/areas.ts`: service areas and the text on each area page
 
-**Photos:** `public/images/tank-cleaning.jpg`, `waterproofing.jpg` and `deep-cleaning.jpg`
-were taken from the reference site (spb-cleaning.lovable.app). They're used for the home hero
-(`heroImage` in `content/site.ts`), page headers, service cards and the gallery. The drawn
-before/after images in `public/images/gallery/*.svg` are placeholders; replace them with real
-job photos and update `content/gallery.ts`.
+**Images** live in `public/images` and every path is listed in `content/images.ts`:
 
-**Logo:** `components/Logo.tsx` (header/footer) and `app/icon.svg` (browser tab icon).
+| Folder | Contents |
+| --- | --- |
+| `brand/` | `logo.png` (full badge), `emblem.png` (round mark for header and small spaces) |
+| `hero/` | Wide banner photos behind page headers (from the reference site spb-cleaning.lovable.app) |
+| `jobs/tanks/`, `jobs/sumps/` | Real before/after photos from the client's jobs |
+
+Name files in lowercase-with-dashes (e.g. `white-tank-before.jpg`) and keep photos under ~1600px.
+Before/after slider pairs are set in `content/gallery.ts`; only pair photos of the same tank or sump.
+
+Source artwork that isn't served on the site (logo PDF, rate chart) is kept in `design/`.
+
+**Logo & icons:** `components/Logo.tsx` (header/footer); `app/icon.png`, `app/apple-icon.png` and
+`app/favicon.ico` (browser tab and phone home-screen icons, made from the round emblem).
 
 ## To confirm with the client
 
 These are defaults, marked "placeholder" in the content files:
 
-- [ ] Prices: OK to show publicly? Prices for sizes not on the list (e.g. 4,000–5,000 L sumps)
+- [ ] Prices for sizes between the rate chart's ranges (e.g. 4,000–5,000 L or 12,000–14,000 L sumps)
 - [ ] Prices for pipe acid wash, waterproofing and toilet cleaning (currently "Price on inspection")
 - [ ] Which number receives WhatsApp bookings (currently 9148298431)
 - [ ] Service areas (currently Varthur, Whitefield, Sarjapur Road and nearby)
@@ -61,7 +69,8 @@ These are defaults, marked "placeholder" in the content files:
 - [ ] Real job photos and the logo file; what the "UCS" logo on the flyer is
 - [ ] About-page story (years in business, team)
 - [ ] Kannada text reviewed by a native speaker
-- [ ] Rights to use the photos from the reference site (or replace with the client's own)
+- [ ] Rights to use the 3 banner photos from the reference site (`public/images/hero/`)
+- [ ] "Acid wash" on the rate chart: a separate service from pipe acid wash?
 - [ ] FAQ answers (job duration, what customers need to do) and the "1–3 hrs" figure on the home page
 - [ ] Whether solar panel cleaning / deep cleaning (listed on the reference site) should be added
 

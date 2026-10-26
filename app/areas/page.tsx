@@ -5,6 +5,7 @@ import { JsonLd } from "@/components/JsonLd";
 import { Container, PageHero } from "@/components/Section";
 import { areas } from "@/content/areas";
 import { breadcrumbSchema, pageMetadata } from "@/lib/seo";
+import { images } from "@/content/images";
 
 export const metadata = pageMetadata({
   title: "Areas We Serve in East Bengaluru",
@@ -17,7 +18,7 @@ export default function AreasPage() {
   return (
     <>
       <PageHero
-        image="/images/waterproofing.jpg"
+        image={images.hero.waterproofing}
         eyebrow="Service areas"
         title="Areas we serve"
         titleKn="ನಾವು ಸೇವೆ ನೀಡುವ ಪ್ರದೇಶಗಳು"

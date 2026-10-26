@@ -1,5 +1,6 @@
 import { getArea } from "@/content/areas";
 import { ogSize, renderOgImage } from "@/lib/og";
+import { prices } from "@/content/pricing";
 
 export const alt = "SPB Civil Work Cleaning Service";
 export const size = ogSize;
@@ -10,6 +11,6 @@ export default async function Image({ params }: { params: Promise<{ slug: string
   const area = getArea(slug);
   return renderOgImage({
     title: `Sump & tank cleaning in ${area?.name ?? "Bengaluru"}`,
-    subtitle: "Sludge removal · Disinfection · Pressure wash · From ₹500",
+    subtitle: `Sludge removal · Disinfection · Pressure wash · From ${prices.from}`,
   });
 }

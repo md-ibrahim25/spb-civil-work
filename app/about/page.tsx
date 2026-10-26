@@ -1,9 +1,12 @@
+import Image from "next/image";
 import { CTABanner } from "@/components/Blocks";
 import { CheckIcon } from "@/components/Icons";
 import { JsonLd } from "@/components/JsonLd";
 import { Container, PageHero, SectionHeading } from "@/components/Section";
 import { site } from "@/content/site";
 import { breadcrumbSchema, pageMetadata } from "@/lib/seo";
+import { images } from "@/content/images";
+import { cleaningProcess } from "@/content/services";
 
 export const metadata = pageMetadata({
   title: "About Us: Local Sump & Tank Cleaners in Varthur",
@@ -31,7 +34,7 @@ export default function AboutPage() {
   return (
     <>
       <PageHero
-        image="/images/waterproofing.jpg"
+        image={images.hero.waterproofing}
         eyebrow="About us"
         title="A local team that cares about your water"
         titleKn="ನಮ್ಮ ಬಗ್ಗೆ"
@@ -48,7 +51,7 @@ export default function AboutPage() {
               </p>
               <p>
                 Dirty sumps and tanks collect sludge, algae and bacteria that end up in the water you drink, cook
-                and bathe with. We clean them properly, with a tested 4-step process and professional machines,
+                and bathe with. We clean them properly, with a tested {cleaningProcess.length}-step process and professional machines,
                 so your family gets clean, safe water.
               </p>
               <p>
@@ -57,6 +60,15 @@ export default function AboutPage() {
               </p>
             </div>
           </div>
+          <div className="space-y-8">
+          <Image
+            src={images.logo}
+            alt="SPB Civil Work Tank & Sump Cleaning badge"
+            width={800}
+            height={855}
+            sizes="280px"
+            className="reveal mx-auto h-auto w-56 sm:w-64"
+          />
           <div className="reveal rounded-3xl bg-gradient-to-br from-brand to-brand-dark p-8 text-white shadow-xl shadow-brand/20">
             <h2 className="font-display text-2xl font-bold">What we stand for</h2>
             <ul className="mt-6 space-y-4">
@@ -69,6 +81,7 @@ export default function AboutPage() {
                 </li>
               ))}
             </ul>
+          </div>
           </div>
         </Container>
       </section>

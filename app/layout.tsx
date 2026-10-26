@@ -11,6 +11,7 @@ import "@fontsource-variable/plus-jakarta-sans";
 import "@fontsource-variable/archivo";
 import "@fontsource-variable/noto-sans-kannada";
 import "./globals.css";
+import { prices } from "@/content/pricing";
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
@@ -19,7 +20,7 @@ export const metadata: Metadata = {
     template: `%s | ${site.shortName}`,
   },
   description:
-    "Sump and tank cleaning in Varthur, Whitefield & east Bengaluru: sludge removal, disinfection, pressure wash and drying. Fixed prices from ₹500.",
+    `Sump and tank cleaning in Varthur, Whitefield & east Bengaluru: sludge removal, disinfection, pressure wash and drying. Fixed prices from ${prices.from}.`,
   applicationName: site.name,
   openGraph: {
     type: "website",

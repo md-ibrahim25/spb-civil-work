@@ -9,7 +9,7 @@ import { Container, PageHero, SectionHeading } from "@/components/Section";
 import { areas } from "@/content/areas";
 import { sumpPrices, tankPrices } from "@/content/pricing";
 import { serviceDetails } from "@/content/service-details";
-import { getService, services } from "@/content/services";
+import { cleaningProcess, getService, services } from "@/content/services";
 import { site, phoneHref, formatPhone } from "@/content/site";
 import { breadcrumbSchema, faqSchema, pageMetadata, serviceSchema } from "@/lib/seo";
 import { whatsappUrl } from "@/lib/whatsapp";
@@ -134,7 +134,7 @@ export default async function ServicePage({ params }: Props) {
       {isCleaning && (
         <section className="bg-surface py-20 sm:py-24">
           <Container>
-            <SectionHeading eyebrow="How we clean" title="Our 4-step process" titleKn="ನಮ್ಮ ಶುಚಿಗೊಳಿಸುವ ವಿಧಾನ" center />
+            <SectionHeading eyebrow="How we clean" title={`Our ${cleaningProcess.length}-step process`} titleKn="ನಮ್ಮ ಶುಚಿಗೊಳಿಸುವ ವಿಧಾನ" center />
             <div className="mt-14">
               <ProcessSteps />
             </div>

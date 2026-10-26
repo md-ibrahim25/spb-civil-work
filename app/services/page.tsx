@@ -3,6 +3,7 @@ import { JsonLd } from "@/components/JsonLd";
 import { Container, PageHero, SectionHeading } from "@/components/Section";
 import { equipment, services } from "@/content/services";
 import { breadcrumbSchema, pageMetadata } from "@/lib/seo";
+import { images } from "@/content/images";
 
 export const metadata = pageMetadata({
   title: "Sump, Tank Cleaning & Waterproofing in Bengaluru",
@@ -15,7 +16,7 @@ export default function ServicesPage() {
   return (
     <>
       <PageHero
-        image="/images/waterproofing.jpg"
+        image={images.hero.waterproofing}
         eyebrow="Our services"
         title="Cleaning, disinfection & waterproofing"
         titleKn="ನಮ್ಮ ಸೇವೆಗಳು"

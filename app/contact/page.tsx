@@ -6,6 +6,7 @@ import { Container, PageHero } from "@/components/Section";
 import { directionsUrl, site, phoneHref, formatPhone } from "@/content/site";
 import { whatsappUrl } from "@/lib/whatsapp";
 import { breadcrumbSchema, pageMetadata } from "@/lib/seo";
+import { images } from "@/content/images";
 
 export const metadata = pageMetadata({
   title: "Book Sump & Tank Cleaning: Call or WhatsApp",
@@ -20,7 +21,7 @@ export default function ContactPage() {
   return (
     <>
       <PageHero
-        image="/images/tank-cleaning.jpg"
+        image={images.hero.tankCleaning}
         eyebrow="Book & contact"
         title="Book a cleaning"
         titleKn="ನಿಮ್ಮ ಸ್ಥಳ, ದಿನಾಂಕ ಮತ್ತು ಸಮಯ ಹಂಚಿಕೊಳ್ಳಿ"

@@ -1,3 +1,5 @@
+import { prices, priceSentence, sumpPrices, tankPrices } from "./pricing";
+
 // Longer copy for each service's own page (/services/<slug>). Written to answer what
 // customers search for; keep it accurate and confirm details with the client.
 
@@ -15,13 +17,13 @@ export type ServiceDetail = {
 
 export const serviceDetails: Record<string, ServiceDetail> = {
   "sump-cleaning": {
-    seoTitle: "Sump Cleaning in Varthur, Bengaluru | From ₹1,000",
+    seoTitle: `Sump Cleaning in Varthur, Bengaluru | From ${prices.sumpFrom}`,
     metaDescription:
-      "Underground sump cleaning in Varthur, Whitefield & east Bengaluru: sludge removal, disinfection, pressure wash & drying. Fixed prices from ₹1,000.",
+      `Underground sump cleaning in Varthur, Whitefield & east Bengaluru: sludge removal, disinfection, pressure wash & drying. Fixed prices from ${prices.sumpFrom}.`,
     heading: "Water sump cleaning in Bengaluru",
     intro: [
       "Your underground sump stores the water your family drinks, cooks and bathes with. Over time silt settles at the bottom, algae grows on the walls and bacteria build up, especially after the monsoon.",
-      "We drain the sump, pump out every bit of sludge with a submersible pump, disinfect the walls and floor with potassium permanganate and bleaching powder, pressure wash every surface and leave it dry and ready to refill.",
+      "We pump out the water and every bit of sludge, disinfect the walls and floor with potassium permanganate, bleaching powder and chlorine, pressure wash every surface, vacuum out what's left and leave it dry and ready to refill.",
     ],
     signs: [
       "Water smells musty or stale",
@@ -32,7 +34,7 @@ export const serviceDetails: Record<string, ServiceDetail> = {
     faqs: [
       {
         q: "How much does sump cleaning cost?",
-        a: "₹1,000 for 2,000–4,000 L, ₹1,200 for 5,000–6,000 L, ₹1,300 for 7,000–9,000 L and ₹1,400 for 10,000–12,000 L. Larger sumps: call for a price.",
+        a: `${priceSentence(sumpPrices)}. Larger or tiled sumps: call for a price.`,
       },
       {
         q: "How long does sump cleaning take?",
@@ -41,9 +43,9 @@ export const serviceDetails: Record<string, ServiceDetail> = {
     ],
   },
   "tank-cleaning": {
-    seoTitle: "Water Tank Cleaning in Bengaluru | From ₹500",
+    seoTitle: `Water Tank Cleaning in Bengaluru | From ${prices.tankFrom}`,
     metaDescription:
-      "Overhead water tank cleaning in Varthur, Whitefield & east Bengaluru for 500 L to 3,000 L tanks. Sludge removal, anti-bacterial spray, pressure wash. From ₹500.",
+      `Overhead water tank cleaning in Varthur, Whitefield & east Bengaluru for 500 L to ${prices.largestTank} tanks. Sludge removal, disinfection, pressure wash. From ${prices.tankFrom}.`,
     heading: "Overhead water tank cleaning in Bengaluru",
     intro: [
       "Rooftop tanks heat up in the sun, which helps algae and bacteria grow, and dust and leaves find their way in. Even a closed plastic tank collects a layer of sludge at the bottom within months.",
@@ -58,7 +60,7 @@ export const serviceDetails: Record<string, ServiceDetail> = {
     faqs: [
       {
         q: "How much does tank cleaning cost?",
-        a: "₹500 for 500 L, ₹550 for 750 L, ₹600 for 1,000 L, ₹700 for 1,500 L, ₹800 for 2,000 L and ₹1,000 for 3,000 L.",
+        a: `${priceSentence(tankPrices)}.`,
       },
       {
         q: "Can you clean several tanks in one visit?",

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { areas } from "@/content/areas";
-import { sumpPrices, tankPrices } from "@/content/pricing";
+import { images } from "@/content/images";
+import { formatRupees, prices, sumpPrices, tankPrices } from "@/content/pricing";
 import { services } from "@/content/services";
 import { site } from "@/content/site";
 
@@ -52,8 +53,8 @@ export function localBusinessSchema() {
     alternateName: site.nameKn,
     description: site.description,
     url: site.url,
-    image: absoluteUrl("/images/tank-cleaning.jpg"),
-    logo: absoluteUrl("/icon.svg"),
+    image: absoluteUrl(images.hero.tankCleaning),
+    logo: absoluteUrl(images.emblem),
     telephone: site.contact.phones.map((p) => `+91${p}`),
     address: {
       "@type": "PostalAddress",
@@ -70,7 +71,7 @@ export function localBusinessSchema() {
       closes: site.contact.closes,
     },
     areaServed: areas.map((a) => ({ "@type": "Place", name: `${a.name}, Bengaluru` })),
-    priceRange: "₹500 – ₹1,400",
+    priceRange: `${formatRupees(prices.min)} – ${formatRupees(prices.max)}`,
     currenciesAccepted: "INR",
     hasOfferCatalog: {
       "@type": "OfferCatalog",

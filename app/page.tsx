@@ -7,8 +7,10 @@ import { PriceCalculator } from "@/components/PriceCalculator";
 import { JsonLd } from "@/components/JsonLd";
 import { Container, DarkBackdrop, SectionHeading } from "@/components/Section";
 import { faqs } from "@/content/faq";
-import { included } from "@/content/pricing";
-import { equipment, services } from "@/content/services";
+import { beforeAfterPairs } from "@/content/gallery";
+import { images } from "@/content/images";
+import { included, prices } from "@/content/pricing";
+import { cleaningProcess, equipment, services } from "@/content/services";
 import { directionsUrl, heroImage, site, phoneHref, formatPhone } from "@/content/site";
 import { faqSchema, pageMetadata } from "@/lib/seo";
 import { whatsappUrl } from "@/lib/whatsapp";
@@ -16,13 +18,13 @@ import { whatsappUrl } from "@/lib/whatsapp";
 export const metadata = pageMetadata({
   title: "Sump & Tank Cleaning in Varthur, Bengaluru | SPB Cleaning",
   description:
-    "Sump and tank cleaning in Varthur, Whitefield & east Bengaluru: sludge removal, disinfection, pressure wash and drying. Fixed prices from ₹500.",
+    `Sump and tank cleaning in Varthur, Whitefield & east Bengaluru: sludge removal, disinfection, pressure wash and drying. Fixed prices from ${prices.from}.`,
   path: "/",
   exactTitle: true,
 });
 
 const quickFacts = [
-  { icon: SparkleIcon, value: "4-step", label: "deep clean" },
+  { icon: SparkleIcon, value: `${cleaningProcess.length}-step`, label: "deep clean" },
   { icon: ShieldIcon, value: "Safe", label: "disinfectants" },
   { icon: ClockIcon, value: "1–3 hrs", label: "most jobs" },
 ];
@@ -70,7 +72,7 @@ export default function Home() {
             <p className="mt-5 max-w-xl text-lg text-slate-300">
               Professional water sump and overhead tank cleaning for homes, apartments and businesses in Varthur,
               Whitefield and east Bengaluru. We remove the sludge, disinfect, pressure wash and dry, so your family
-              gets clean, safe water. Fixed prices, from ₹500.
+              gets clean, safe water. Fixed prices, from {prices.from}.
             </p>
 
             <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
@@ -144,19 +146,19 @@ export default function Home() {
       {/* Before / after */}
       <section className="py-20 sm:py-28">
         <Container className="grid items-center gap-12 lg:grid-cols-2">
-          <div className="reveal">
+          <div className="reveal mx-auto w-full max-w-md">
             <BeforeAfter
-              before="/images/gallery/sump-before.svg"
-              after="/images/gallery/sump-after.svg"
-              alt="Water sump"
+              before={beforeAfterPairs[0].before}
+              after={beforeAfterPairs[0].after}
+              alt={beforeAfterPairs[0].label}
             />
             <p className="mt-3 text-center text-sm text-muted">Drag the slider to compare</p>
           </div>
           <div>
             <SectionHeading
               eyebrow="See the difference"
-              title="What's hiding in your sump?"
-              intro="Over months, sumps and tanks collect silt, algae and bacteria that end up in the water you drink, cook and bathe with. A proper cleaning removes all of it."
+              title="What's hiding in your tank?"
+              intro="These are real photos from our jobs. Over months, sumps and tanks collect silt, algae and bacteria that end up in the water you drink, cook and bathe with. A proper cleaning removes all of it."
             />
             <div className="reveal mt-8 rounded-3xl bg-surface p-6 ring-1 ring-slate-200">
               <h3 className="font-bold text-ink">Every cleaning includes</h3>
@@ -180,7 +182,7 @@ export default function Home() {
         <Container>
           <SectionHeading
             eyebrow="How we clean"
-            title="Our 4-step deep clean"
+            title={`Our ${cleaningProcess.length}-step deep clean`}
             titleKn="ನಮ್ಮ ಶುಚಿಗೊಳಿಸುವ ವಿಧಾನ"
             center
           />
@@ -208,7 +210,7 @@ export default function Home() {
             </ul>
             <div className="reveal relative mt-8 aspect-[16/10] overflow-hidden rounded-3xl ring-1 ring-white/15">
               <Image
-                src="/images/waterproofing.jpg"
+                src={images.hero.waterproofing}
                 alt="Our team applying waterproof coating on a terrace"
                 fill
                 sizes="(min-width: 1024px) 520px, 100vw"

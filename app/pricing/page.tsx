@@ -5,13 +5,14 @@ import { PriceTable } from "@/components/PriceTable";
 import { JsonLd } from "@/components/JsonLd";
 import { Container, PageHero, SectionHeading } from "@/components/Section";
 import { faqs } from "@/content/faq";
-import { included, pricingNotes, sumpPrices, tankPrices } from "@/content/pricing";
+import { included, prices, pricingNotes, sumpPrices, tankPrices } from "@/content/pricing";
 import { breadcrumbSchema, faqSchema, pageMetadata } from "@/lib/seo";
+import { images } from "@/content/images";
 
 export const metadata = pageMetadata({
   title: "Sump & Tank Cleaning Prices in Bengaluru",
   description:
-    "Fixed prices: sump cleaning from ₹1,000 and overhead tank cleaning from ₹500 in Varthur & east Bengaluru. All 4 cleaning steps included.",
+    `Fixed prices: sump cleaning from ${prices.sumpFrom} and overhead tank cleaning from ${prices.tankFrom} in Varthur & east Bengaluru. Every cleaning step included.`,
   path: "/pricing",
 });
 
@@ -19,7 +20,7 @@ export default function PricingPage() {
   return (
     <>
       <PageHero
-        image="/images/tank-cleaning.jpg"
+        image={images.hero.tankCleaning}
         eyebrow="Prices"
         title="Simple, fixed prices"
         titleKn="ಶುಚಿಗೊಳಿಸುವಿಕೆ ದರಗಳು"

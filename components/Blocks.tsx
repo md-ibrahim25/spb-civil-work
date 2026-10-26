@@ -131,12 +131,7 @@ export function ServiceBento({ services }: { services: Service[] }) {
 
 export function ProcessSteps() {
   return (
-    <ol className="relative grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-      {/* Connecting line behind the step numbers on wide screens */}
-      <div
-        className="pointer-events-none absolute left-[12%] right-[12%] top-[2.6rem] hidden h-0.5 bg-gradient-to-r from-water via-brand to-aqua lg:block"
-        aria-hidden
-      />
+    <ol className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
       {cleaningProcess.map((step, i) => (
         <li key={step.title} className="reveal relative rounded-3xl bg-white p-7 text-center shadow-sm ring-1 ring-slate-200">
           <span className="relative mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-gradient-to-br from-brand to-water font-display text-2xl font-bold text-white shadow-lg shadow-brand/30 ring-8 ring-white">
