@@ -89,5 +89,7 @@ These are defaults, marked "placeholder" in the content files:
 Hosted on Vercel (project `spb-civil-work`). Deploy with `vercel deploy --prod`, or connect the
 GitHub repo in Vercel for automatic deploys on every push to `main`.
 
-The site address comes from Vercel's production domain automatically. To override it, set
-`NEXT_PUBLIC_SITE_URL`. For Search Console's HTML-tag verification, set `GOOGLE_SITE_VERIFICATION`.
+Domain: **spbcivilworks.com** (set as `domain` in `content/site.ts`); `www.` redirects to it
+(`next.config.ts`). Production builds use it for canonical URLs, the sitemap and share links.
+To override, set `NEXT_PUBLIC_SITE_URL`. For Search Console's HTML-tag verification, set
+`GOOGLE_SITE_VERIFICATION`.

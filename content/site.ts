@@ -4,11 +4,15 @@ import { images } from "./images";
 // Business details used across the whole site. Edit here to update everywhere.
 // Values marked "placeholder" / "default" are awaiting confirmation from the client.
 
-// NEXT_PUBLIC_SITE_URL wins if set. Otherwise on Vercel use the project's production
-// domain (the custom domain once connected), and fall back to localhost in development.
+// The site's main address (www.spbcivilworks.com redirects here, see next.config.ts).
+export const domain = "spbcivilworks.com";
+
+// NEXT_PUBLIC_SITE_URL wins if set. Production uses the custom domain; Vercel preview
+// deployments use their own address; local development uses localhost.
 function siteUrl() {
   if (process.env.NEXT_PUBLIC_SITE_URL) return process.env.NEXT_PUBLIC_SITE_URL;
-  if (process.env.VERCEL_PROJECT_PRODUCTION_URL) return `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`;
+  if (process.env.VERCEL_ENV === "production") return `https://${domain}`;
+  if (process.env.VERCEL_URL) return `https://${process.env.VERCEL_URL}`;
   return "http://localhost:3000";
 }
 
