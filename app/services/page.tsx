@@ -1,13 +1,15 @@
-import type { Metadata } from "next";
 import { CTABanner, ProcessSteps, ServiceCard } from "@/components/Blocks";
+import { JsonLd } from "@/components/JsonLd";
 import { Container, PageHero, SectionHeading } from "@/components/Section";
 import { equipment, services } from "@/content/services";
+import { breadcrumbSchema, pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Services",
+export const metadata = pageMetadata({
+  title: "Sump, Tank Cleaning & Waterproofing in Bengaluru",
   description:
-    "Water sump cleaning, overhead tank cleaning, pipe acid wash, waterproof grouting, waterproof paint and toilet cleaning in Bengaluru.",
-};
+    "Water sump and overhead tank cleaning, pipe acid wash, waterproof grouting, waterproof paint and toilet cleaning in Varthur, Whitefield and east Bengaluru.",
+  path: "/services",
+});
 
 export default function ServicesPage() {
   return (
@@ -60,6 +62,7 @@ export default function ServicesPage() {
       </section>
 
       <CTABanner />
+      <JsonLd data={breadcrumbSchema([{ name: "Services", path: "/services" }])} />
     </>
   );
 }

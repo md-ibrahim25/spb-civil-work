@@ -1,5 +1,15 @@
+import { areas } from "./areas";
+
 // Business details used across the whole site. Edit here to update everywhere.
 // Values marked "placeholder" / "default" are awaiting confirmation from the client.
+
+// NEXT_PUBLIC_SITE_URL wins if set. Otherwise on Vercel use the project's production
+// domain (the custom domain once connected), and fall back to localhost in development.
+function siteUrl() {
+  if (process.env.NEXT_PUBLIC_SITE_URL) return process.env.NEXT_PUBLIC_SITE_URL;
+  if (process.env.VERCEL_PROJECT_PRODUCTION_URL) return `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`;
+  return "http://localhost:3000";
+}
 
 export const site = {
   name: "SPB Civil Work Cleaning Service",
@@ -9,8 +19,8 @@ export const site = {
   taglineKn: "ನೀರಿನ ಸಂಪ್ ಮತ್ತು ಟ್ಯಾಂಕ್ ಶುಚಿಗೊಳಿಸುವಿಕೆ",
   description:
     "Professional water sump and overhead tank cleaning, pipe acid wash, waterproof grouting, waterproof paint and toilet cleaning in Varthur and nearby areas of Bengaluru.",
-  // Used for absolute URLs in the sitemap and metadata. Set NEXT_PUBLIC_SITE_URL in production.
-  url: process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000",
+  // Absolute site address for the sitemap, canonical tags and share previews.
+  url: siteUrl(),
 
   contact: {
     phones: ["9148298431", "9707045806"],
@@ -25,20 +35,14 @@ export const site = {
     addressKn:
       "C/o ಮಾರುತಿ ಬಿಲ್ಡಿಂಗ್ ಎದುರು, BSNL ಎಕ್ಸ್‌ಚೇಂಜ್, ಮುತ್ಸಂದ್ರ ಗ್ರಾಮ, ವರ್ತೂರ್ ಮೂಲಕ, ಬೆಂಗಳೂರು - 87",
     hours: "Mon – Sun, 8:00 am – 7:00 pm", // placeholder
+    // Same hours in machine-readable form for Google (keep in sync with `hours`).
+    opens: "08:00",
+    closes: "19:00",
     mapQuery: "Muthsandra, Varthur, Bengaluru 560087",
   },
 
-  // Default service area, pending confirmation.
-  serviceAreas: [
-    "Varthur",
-    "Muthsandra",
-    "Whitefield",
-    "Gunjur",
-    "Sarjapur Road",
-    "Hoskote",
-    "Marathahalli",
-    "Bellandur",
-  ],
+  // Names of the areas we serve (details in content/areas.ts).
+  serviceAreas: areas.map((a) => a.name),
 
   nav: [
     { label: "Home", href: "/" },

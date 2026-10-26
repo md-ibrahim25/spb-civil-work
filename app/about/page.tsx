@@ -1,13 +1,16 @@
-import type { Metadata } from "next";
 import { CTABanner } from "@/components/Blocks";
 import { CheckIcon } from "@/components/Icons";
+import { JsonLd } from "@/components/JsonLd";
 import { Container, PageHero, SectionHeading } from "@/components/Section";
 import { site } from "@/content/site";
+import { breadcrumbSchema, pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "About Us",
-  description: `About ${site.name}: a local Bengaluru team for sump and tank cleaning and waterproofing.`,
-};
+export const metadata = pageMetadata({
+  title: "About Us: Local Sump & Tank Cleaners in Varthur",
+  description:
+    "SPB Civil Work Cleaning Service is a local team in Muthsandra, Varthur, cleaning water sumps and tanks and waterproofing homes across east Bengaluru.",
+  path: "/about",
+});
 
 // Placeholder copy: confirm the story, years in business and team details with the client.
 const values = [
@@ -90,6 +93,7 @@ export default function AboutPage() {
       </section>
 
       <CTABanner />
+      <JsonLd data={breadcrumbSchema([{ name: "About", path: "/about" }])} />
     </>
   );
 }

@@ -1,15 +1,18 @@
-import type { Metadata } from "next";
 import { BookingForm } from "@/components/BookingForm";
 import { BookingSteps } from "@/components/Blocks";
 import { ArrowIcon, ClockIcon, PhoneIcon, PinIcon, WhatsAppIcon } from "@/components/Icons";
+import { JsonLd } from "@/components/JsonLd";
 import { Container, PageHero } from "@/components/Section";
 import { directionsUrl, site, phoneHref, formatPhone } from "@/content/site";
 import { whatsappUrl } from "@/lib/whatsapp";
+import { breadcrumbSchema, pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Book & Contact",
-  description: `Book sump or tank cleaning. Call ${site.contact.phones.join(" / ")} or WhatsApp us your location and preferred date & time.`,
-};
+export const metadata = pageMetadata({
+  title: "Book Sump & Tank Cleaning: Call or WhatsApp",
+  description:
+    "Book sump or tank cleaning in Varthur & east Bengaluru. Call 91482 98431 / 97070 45806 or WhatsApp your location and preferred date & time.",
+  path: "/contact",
+});
 
 export default function ContactPage() {
   const mapSrc = `https://www.google.com/maps?q=${encodeURIComponent(site.contact.mapQuery)}&output=embed`;
@@ -103,6 +106,7 @@ export default function ContactPage() {
           </aside>
         </Container>
       </section>
+      <JsonLd data={breadcrumbSchema([{ name: "Contact", path: "/contact" }])} />
     </>
   );
 }

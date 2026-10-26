@@ -143,3 +143,7 @@ export const equipment = [
   { name: "Wet & dry vacuum", text: "Removes water, dirt and fine sludge" },
   { name: "Submersible sludge pump", text: "Empties sumps quickly and completely" },
 ];
+
+export function getService(slug: string) {
+  return services.find((s) => s.slug === slug);
+}

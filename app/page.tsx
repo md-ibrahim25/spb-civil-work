@@ -4,11 +4,22 @@ import { BeforeAfter } from "@/components/BeforeAfter";
 import { AreaMarquee, Audiences, BookingSteps, CTABanner, Faq, ProcessSteps, ServiceBento, TrustStrip } from "@/components/Blocks";
 import { ArrowIcon, CheckIcon, ClockIcon, DropIcon, PhoneIcon, PinIcon, ShieldIcon, SparkleIcon, WhatsAppIcon } from "@/components/Icons";
 import { PriceCalculator } from "@/components/PriceCalculator";
-import { Container, DarkBackdrop, Eyebrow, SectionHeading } from "@/components/Section";
+import { JsonLd } from "@/components/JsonLd";
+import { Container, DarkBackdrop, SectionHeading } from "@/components/Section";
+import { faqs } from "@/content/faq";
 import { included } from "@/content/pricing";
 import { equipment, services } from "@/content/services";
 import { directionsUrl, heroImage, site, phoneHref, formatPhone } from "@/content/site";
+import { faqSchema, pageMetadata } from "@/lib/seo";
 import { whatsappUrl } from "@/lib/whatsapp";
+
+export const metadata = pageMetadata({
+  title: "Sump & Tank Cleaning in Varthur, Bengaluru | SPB Cleaning",
+  description:
+    "Sump and tank cleaning in Varthur, Whitefield & east Bengaluru: sludge removal, disinfection, pressure wash and drying. Fixed prices from ₹500.",
+  path: "/",
+  exactTitle: true,
+});
 
 const quickFacts = [
   { icon: SparkleIcon, value: "4-step", label: "deep clean" },
@@ -41,20 +52,25 @@ export default function Home() {
       <DarkBackdrop underHeader image={heroImage}>
         <Container className="grid items-center gap-12 pb-24 pt-12 sm:pt-16 lg:grid-cols-[1.1fr_1fr] lg:pb-32 lg:pt-20">
           <div>
-            <Eyebrow dark>Sump · Tank · Waterproofing</Eyebrow>
-            <h1 className="mt-5 font-display text-[2.6rem] font-black leading-[1.02] sm:text-6xl lg:text-[4.25rem]">
+            {/* The h1 carries the search phrase; the big slogan below is presentational. */}
+            <h1 className="inline-flex items-center gap-2 rounded-full bg-white/10 px-3 py-1 text-xs font-bold uppercase tracking-widest text-aqua ring-1 ring-white/15">
+              <span className="h-1.5 w-1.5 rounded-full bg-aqua" aria-hidden />
+              Sump &amp; tank cleaning in Varthur, Bengaluru
+            </h1>
+            <p className="mt-5 font-display text-[2.6rem] font-black leading-[1.02] sm:text-6xl lg:text-[4.25rem]">
               Clean sumps.
               <br />
               Safe tanks.
               <br />
               <span className="text-gradient">Healthy water.</span>
-            </h1>
+            </p>
             <p lang="kn" className="mt-4 font-kannada text-lg text-water">
               {site.taglineKn}
             </p>
             <p className="mt-5 max-w-xl text-lg text-slate-300">
-              We remove the sludge, disinfect, pressure wash and dry your sump or tank, so your family gets clean,
-              safe water. Fixed prices, from ₹500.
+              Professional water sump and overhead tank cleaning for homes, apartments and businesses in Varthur,
+              Whitefield and east Bengaluru. We remove the sludge, disinfect, pressure wash and dry, so your family
+              gets clean, safe water. Fixed prices, from ₹500.
             </p>
 
             <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
@@ -270,6 +286,7 @@ export default function Home() {
       </div>
 
       <CTABanner />
+      <JsonLd data={faqSchema(faqs)} />
     </>
   );
 }

@@ -1,5 +1,6 @@
 import { cacheLife } from "next/cache";
 import Link from "next/link";
+import { areas } from "@/content/areas";
 import { site, phoneHref, formatPhone } from "@/content/site";
 import { services } from "@/content/services";
 import { whatsappUrl } from "@/lib/whatsapp";
@@ -32,7 +33,7 @@ export async function Footer() {
           <ul className="mt-4 space-y-2 text-sm">
             {services.map((s) => (
               <li key={s.slug}>
-                <Link href={`/services#${s.slug}`} className="hover:text-white">
+                <Link href={`/services/${s.slug}`} className="hover:text-white">
                   {s.title}
                 </Link>
               </li>
@@ -86,6 +87,21 @@ export async function Footer() {
             </li>
           </ul>
         </div>
+      </div>
+      <div className="border-t border-white/10">
+        <nav aria-label="Areas we serve" className="mx-auto max-w-6xl px-4 py-5">
+          <h2 className="sr-only">Areas we serve</h2>
+          <ul className="flex flex-wrap gap-x-4 gap-y-2 text-sm">
+            <li className="font-semibold text-white">Sump &amp; tank cleaning in:</li>
+            {areas.map((a) => (
+              <li key={a.slug}>
+                <Link href={`/areas/${a.slug}`} className="hover:text-white">
+                  {a.name}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </nav>
       </div>
       <div className="border-t border-white/10">
         <p className="mx-auto max-w-6xl px-4 py-5 text-xs text-slate-400">

@@ -3,7 +3,9 @@ import { ContactBar } from "@/components/ContactBar";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { TopBar } from "@/components/TopBar";
+import { JsonLd } from "@/components/JsonLd";
 import { site } from "@/content/site";
+import { localBusinessSchema } from "@/lib/seo";
 // Fonts are bundled with the site (not fetched from Google at build time).
 import "@fontsource-variable/plus-jakarta-sans";
 import "@fontsource-variable/archivo";
@@ -13,49 +15,28 @@ import "./globals.css";
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: {
-    default: `${site.name} | Sump & Tank Cleaning in Bengaluru`,
+    default: "Sump & Tank Cleaning in Varthur, Bengaluru | SPB Cleaning",
     template: `%s | ${site.shortName}`,
   },
-  description: site.description,
-  keywords: [
-    "sump cleaning Bengaluru",
-    "water tank cleaning Bangalore",
-    "sump cleaning Varthur",
-    "tank cleaning Whitefield",
-    "pipe acid wash",
-    "waterproofing Bengaluru",
-  ],
+  description:
+    "Sump and tank cleaning in Varthur, Whitefield & east Bengaluru: sludge removal, disinfection, pressure wash and drying. Fixed prices from ₹500.",
+  applicationName: site.name,
   openGraph: {
     type: "website",
     locale: "en_IN",
     siteName: site.name,
-    title: `${site.name} | Sump & Tank Cleaning in Bengaluru`,
-    description: site.description,
+    url: "/",
   },
+  twitter: { card: "summary_large_image" },
+  // Google Search Console HTML-tag verification (optional; DNS verification needs no code).
+  verification: process.env.GOOGLE_SITE_VERIFICATION
+    ? { google: process.env.GOOGLE_SITE_VERIFICATION }
+    : undefined,
+  formatDetection: { telephone: true },
 };
 
 export const viewport: Viewport = {
   themeColor: "#06142b",
-};
-
-// Structured data so search engines can show the business in local results.
-const localBusiness = {
-  "@context": "https://schema.org",
-  "@type": "LocalBusiness",
-  name: site.name,
-  description: site.description,
-  url: site.url,
-  telephone: site.contact.phones.map((p) => `+91${p}`),
-  address: {
-    "@type": "PostalAddress",
-    streetAddress: `${site.contact.address[0]}, ${site.contact.address[1]}`,
-    addressLocality: "Bengaluru",
-    addressRegion: "Karnataka",
-    postalCode: "560087",
-    addressCountry: "IN",
-  },
-  areaServed: site.serviceAreas,
-  priceRange: "₹500 – ₹1,400",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
@@ -75,10 +56,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         </main>
         <Footer />
         <ContactBar />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusiness).replace(/</g, "\\u003c") }}
-        />
+        <JsonLd data={localBusinessSchema()} />
       </body>
     </html>
   );

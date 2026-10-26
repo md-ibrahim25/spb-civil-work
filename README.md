@@ -22,6 +22,8 @@ npm run lint
 | `/gallery`  | Before/after photos                                            |
 | `/about`    | Company story and values                                       |
 | `/contact`  | Booking form (sends to WhatsApp), phone numbers, address, map  |
+| `/services/<slug>` | One page per service (e.g. `/services/sump-cleaning`)   |
+| `/areas`, `/areas/<slug>` | Service areas, one page per area (e.g. `/areas/whitefield`) |
 
 Bookings don't go to a server: the booking form and "Book on WhatsApp" buttons open
 WhatsApp with the customer's details pre-filled, sent to `site.contact.whatsapp`.
@@ -35,6 +37,8 @@ All business details live in `content/`, so you rarely need to touch components:
 - `content/pricing.ts`: sump and tank price lists and notes
 - `content/gallery.ts`: gallery photos and captions
 - `content/faq.ts`: frequently asked questions
+- `content/service-details.ts`: text, SEO title/description and FAQs for each service page
+- `content/areas.ts`: service areas and the text on each area page
 
 **Photos:** `public/images/tank-cleaning.jpg`, `waterproofing.jpg` and `deep-cleaning.jpg`
 were taken from the reference site (spb-cleaning.lovable.app). They're used for the home hero
@@ -61,8 +65,20 @@ These are defaults, marked "placeholder" in the content files:
 - [ ] FAQ answers (job duration, what customers need to do) and the "1–3 hrs" figure on the home page
 - [ ] Whether solar panel cleaning / deep cleaning (listed on the reference site) should be added
 
+## SEO
+
+- Every page has its own title, description, canonical URL and WhatsApp/Facebook share image
+  (`lib/seo.ts`, `lib/og.tsx`, `opengraph-image.tsx` files).
+- Structured data for Google: LocalBusiness with prices, hours and service areas on every page,
+  plus Service, FAQ and breadcrumb data where relevant.
+- `sitemap.xml` lists every page; `proxy.ts` returns a real 404 for unknown service/area URLs.
+- Off-site steps (custom domain, Google Business Profile, Search Console): see
+  [`docs/google-setup.md`](docs/google-setup.md).
+
 ## Deploy
 
-Push to GitHub and import the repo on [Vercel](https://vercel.com) (free tier works).
-Set `NEXT_PUBLIC_SITE_URL` to the live domain (e.g. `https://spbcleaning.in`) so the
-sitemap and search metadata use the right URL.
+Hosted on Vercel (project `spb-civil-work`). Deploy with `vercel deploy --prod`, or connect the
+GitHub repo in Vercel for automatic deploys on every push to `main`.
+
+The site address comes from Vercel's production domain automatically. To override it, set
+`NEXT_PUBLIC_SITE_URL`. For Search Console's HTML-tag verification, set `GOOGLE_SITE_VERIFICATION`.

@@ -1,14 +1,17 @@
-import type { Metadata } from "next";
 import Image from "next/image";
 import { BeforeAfter } from "@/components/BeforeAfter";
 import { CTABanner } from "@/components/Blocks";
+import { JsonLd } from "@/components/JsonLd";
 import { Container, PageHero, SectionHeading } from "@/components/Section";
 import { gallery } from "@/content/gallery";
+import { breadcrumbSchema, pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Our Work",
-  description: "Before and after photos of sump cleaning, tank cleaning and waterproofing jobs.",
-};
+export const metadata = pageMetadata({
+  title: "Our Work: Sump & Tank Cleaning Photos",
+  description:
+    "Before and after photos of sump cleaning, overhead tank cleaning and waterproofing jobs in Varthur and east Bengaluru.",
+  path: "/gallery",
+});
 
 export default function GalleryPage() {
   return (
@@ -62,6 +65,7 @@ export default function GalleryPage() {
       </section>
 
       <CTABanner />
+      <JsonLd data={breadcrumbSchema([{ name: "Our Work", path: "/gallery" }])} />
     </>
   );
 }

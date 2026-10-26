@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { areas } from "@/content/areas";
 import { faqs } from "@/content/faq";
 import { cleaningProcess, type Service } from "@/content/services";
 import { audiences, bookingSteps, site, phoneHref, formatPhone, trustPoints } from "@/content/site";
@@ -69,7 +70,9 @@ export function ServiceCard({
         </div>
       </div>
       <h3 className={`relative mt-6 font-display text-2xl font-bold ${featured ? "text-white" : "text-ink"}`}>
-        {service.title}
+        <Link href={`/services/${service.slug}`} className="hover:underline">
+          {service.title}
+        </Link>
       </h3>
       <p lang="kn" className={`relative mt-1 font-kannada text-sm ${featured ? "text-water" : "text-brand"}`}>
         {service.titleKn}
@@ -177,10 +180,10 @@ export function BookingSteps({ dark = false }: { dark?: boolean }) {
   );
 }
 
-export function Faq() {
+export function Faq({ items = faqs }: { items?: { q: string; a: string }[] }) {
   return (
     <div className="divide-y divide-slate-200 rounded-3xl bg-white px-2 shadow-sm ring-1 ring-slate-200 sm:px-4">
-      {faqs.map((f) => (
+      {items.map((f) => (
         <details key={f.q} className="group px-3 py-1 sm:px-4">
           <summary className="flex cursor-pointer list-none items-center justify-between gap-4 py-5 text-left text-lg font-semibold text-ink [&::-webkit-details-marker]:hidden">
             {f.q}
@@ -200,20 +203,27 @@ export function Faq() {
 
 // Scrolling strip of service areas (static for users who prefer reduced motion).
 export function AreaMarquee() {
-  const areas = [...site.serviceAreas, ...site.serviceAreas];
+  const looped = [...areas, ...areas];
   return (
     <div className="relative overflow-hidden border-y border-slate-200 bg-white py-5 [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]">
-      <ul className="flex w-max animate-marquee gap-3" aria-label="Areas we serve">
-        {areas.map((a, i) => (
-          <li
-            key={`${a}-${i}`}
-            aria-hidden={i >= site.serviceAreas.length}
-            className="flex items-center gap-2 whitespace-nowrap rounded-full bg-surface px-5 py-2.5 font-semibold text-ink ring-1 ring-slate-200"
-          >
-            <PinIcon className="h-4 w-4 text-alert" />
-            {a}
-          </li>
-        ))}
+      <ul className="flex w-max animate-marquee gap-3 hover:[animation-play-state:paused]" aria-label="Areas we serve">
+        {looped.map((a, i) => {
+          const duplicate = i >= areas.length;
+          return (
+            <li key={`${a.slug}-${i}`} aria-hidden={duplicate || undefined}>
+              <Link
+                href={`/areas/${a.slug}`}
+                // Links scroll past constantly; don't prefetch each one as it appears.
+                prefetch={false}
+                tabIndex={duplicate ? -1 : undefined}
+                className="flex items-center gap-2 whitespace-nowrap rounded-full bg-surface px-5 py-2.5 font-semibold text-ink ring-1 ring-slate-200 transition hover:bg-water-light hover:text-brand"
+              >
+                <PinIcon className="h-4 w-4 text-alert" />
+                {a.name}
+              </Link>
+            </li>
+          );
+        })}
       </ul>
     </div>
   );
