@@ -41,7 +41,7 @@ export default async function AreaPage({ params }: Props) {
   return (
     <>
       <PageHero
-        image={images.hero.tankCleaning}
+        image={images.hero.areas}
         eyebrow={`Serving ${area.name}`}
         title={`Sump & tank cleaning in ${area.name}`}
         titleKn={area.nameKn}

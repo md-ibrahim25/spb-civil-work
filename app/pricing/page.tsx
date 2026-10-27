@@ -20,7 +20,7 @@ export default function PricingPage() {
   return (
     <>
       <PageHero
-        image={images.hero.tankCleaning}
+        image={images.hero.pricing}
         eyebrow="Prices"
         title="Simple, fixed prices"
         titleKn="ಶುಚಿಗೊಳಿಸುವಿಕೆ ದರಗಳು"

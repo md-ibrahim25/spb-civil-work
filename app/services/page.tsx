@@ -16,7 +16,7 @@ export default function ServicesPage() {
   return (
     <>
       <PageHero
-        image={images.hero.waterproofing}
+        image={images.hero.services}
         eyebrow="Our services"
         title="Cleaning, disinfection & waterproofing"
         titleKn="ನಮ್ಮ ಸೇವೆಗಳು"

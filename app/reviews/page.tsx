@@ -20,7 +20,7 @@ export default async function ReviewsPage() {
   return (
     <>
       <PageHero
-        image={images.hero.tankCleaning}
+        image={images.hero.reviews}
         eyebrow="Reviews"
         title="What our customers say"
         titleKn="ಗ್ರಾಹಕರ ಅಭಿಪ್ರಾಯ"

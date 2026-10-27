@@ -18,7 +18,7 @@ export default function AreasPage() {
   return (
     <>
       <PageHero
-        image={images.hero.waterproofing}
+        image={images.hero.areas}
         eyebrow="Service areas"
         title="Areas we serve"
         titleKn="ನಾವು ಸೇವೆ ನೀಡುವ ಪ್ರದೇಶಗಳು"

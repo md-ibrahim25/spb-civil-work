@@ -211,7 +211,7 @@ export default function Home() {
             </ul>
             <div className="reveal relative mt-8 aspect-[16/10] overflow-hidden rounded-3xl ring-1 ring-white/15">
               <Image
-                src={images.hero.waterproofing}
+                src={images.services.whyUs}
                 alt="Our team applying waterproof coating on a terrace"
                 fill
                 sizes="(min-width: 1024px) 520px, 100vw"

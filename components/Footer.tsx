@@ -105,7 +105,10 @@ export async function Footer() {
       </div>
       <div className="border-t border-white/10">
         <p className="mx-auto max-w-6xl px-4 py-5 text-xs text-slate-400">
-          © {year} {site.name}. All rights reserved.
+          © {year} {site.name}. All rights reserved. ·{" "}
+          <Link href="/credits" className="hover:text-white">
+            Photo credits
+          </Link>
         </p>
       </div>
     </footer>

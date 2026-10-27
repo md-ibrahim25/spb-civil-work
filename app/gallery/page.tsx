@@ -18,7 +18,7 @@ export default function GalleryPage() {
   return (
     <>
       <PageHero
-        image={images.hero.deepCleaning}
+        image={images.hero.gallery}
         eyebrow="Our work"
         title="See the difference"
         titleKn="ನಮ್ಮ ಕೆಲಸ"

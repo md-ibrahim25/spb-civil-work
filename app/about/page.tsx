@@ -34,7 +34,7 @@ export default function AboutPage() {
   return (
     <>
       <PageHero
-        image={images.hero.waterproofing}
+        image={images.hero.about}
         eyebrow="About us"
         title="A local team that cares about your water"
         titleKn="ನಮ್ಮ ಬಗ್ಗೆ"

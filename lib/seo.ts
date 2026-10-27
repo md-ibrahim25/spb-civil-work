@@ -53,7 +53,7 @@ export function localBusinessSchema() {
     alternateName: site.nameKn,
     description: site.description,
     url: site.url,
-    image: absoluteUrl(images.hero.tankCleaning),
+    image: absoluteUrl(images.hero.home),
     logo: absoluteUrl(images.emblem),
     telephone: site.contact.phones.map((p) => `+91${p}`),
     address: {

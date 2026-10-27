@@ -88,7 +88,7 @@ export const bookingSteps = [
 ];
 
 // Full-width photo behind the home hero. Set to null for a plain dark background.
-export const heroImage: string | null = images.hero.tankCleaning;
+export const heroImage: string | null = images.hero.home;
 
 export const directionsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
   site.contact.mapQuery,

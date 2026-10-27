@@ -45,8 +45,15 @@ All business details live in `content/`, so you rarely need to touch components:
 | Folder | Contents |
 | --- | --- |
 | `brand/` | `logo.png` (full badge), `emblem.png` (round mark for header and small spaces) |
-| `hero/` | Wide banner photos behind page headers (from the reference site spb-cleaning.lovable.app) |
+| `hero/` | One banner photo per page header (no repeats) |
+| `services/` | One photo per service card, plus the "Why choose us" photo |
 | `jobs/tanks/`, `jobs/sumps/` | Real before/after photos from the client's jobs |
+
+Stock photos (in `hero/` and `services/`) are openly licensed (CC0, public domain or CC BY) and
+credited in `content/credits.ts`, shown on `/credits` (linked in the footer). **CC BY photos must
+stay credited.** `home-tank-cleaning.jpg`, `waterproof-paint.jpg` and `toilet-cleaning.jpg` came
+from the earlier reference site (spb-cleaning.lovable.app). Only real job photos go in the gallery
+and before/after sliders, never stock photos.
 
 Name files in lowercase-with-dashes (e.g. `white-tank-before.jpg`) and keep photos under ~1600px.
 Before/after slider pairs are set in `content/gallery.ts`; only pair photos of the same tank or sump.
@@ -69,7 +76,7 @@ These are defaults, marked "placeholder" in the content files:
 - [ ] Real job photos and the logo file; what the "UCS" logo on the flyer is
 - [ ] About-page story (years in business, team)
 - [ ] Kannada text reviewed by a native speaker
-- [ ] Rights to use the 3 banner photos from the reference site (`public/images/hero/`)
+- [ ] Rights to use the 3 photos from the reference site (`hero/home-tank-cleaning.jpg`, `services/waterproof-paint.jpg`, `services/toilet-cleaning.jpg`)
 - [ ] "Acid wash" on the rate chart: a separate service from pipe acid wash?
 - [ ] FAQ answers (job duration, what customers need to do) and the "1–3 hrs" figure on the home page
 - [ ] Whether solar panel cleaning / deep cleaning (listed on the reference site) should be added

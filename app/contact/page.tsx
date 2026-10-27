@@ -21,7 +21,7 @@ export default function ContactPage() {
   return (
     <>
       <PageHero
-        image={images.hero.tankCleaning}
+        image={images.hero.contact}
         eyebrow="Book & contact"
         title="Book a cleaning"
         titleKn="ನಿಮ್ಮ ಸ್ಥಳ, ದಿನಾಂಕ ಮತ್ತು ಸಮಯ ಹಂಚಿಕೊಳ್ಳಿ"

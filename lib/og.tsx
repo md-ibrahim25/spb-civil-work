@@ -9,7 +9,7 @@ export const ogSize = { width: 1200, height: 630 };
 
 export async function renderOgImage({ title, subtitle }: { title: string; subtitle: string }) {
   const [photo, emblem, archivo] = await Promise.all([
-    readFile(join(process.cwd(), "public", images.hero.tankCleaning)),
+    readFile(join(process.cwd(), "public", images.hero.home)),
     readFile(join(process.cwd(), "public", images.emblem)),
     readFile(join(process.cwd(), "node_modules/@fontsource/archivo/files/archivo-latin-800-normal.woff")),
   ]);

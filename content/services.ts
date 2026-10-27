@@ -42,7 +42,7 @@ export const services: Service[] = [
     titleKn: "ಟ್ಯಾಂಕ್ ಶುಚಿಗೊಳಿಸುವಿಕೆ",
     icon: "tank",
     category: "Cleaning",
-    image: images.tanks.blueAfter,
+    image: images.services.tank,
     summary:
       `Plastic (Sintex-type) and concrete overhead tanks cleaned and disinfected, 500 L to ${prices.largestTank}.`,
     points: [
@@ -58,6 +58,7 @@ export const services: Service[] = [
     titleKn: "ನೀರಿನ ಪೈಪ್‌ಲೈನ್ ಆಮ್ಲ ತೊಳೆಯುವುದು",
     icon: "pipe",
     category: "Cleaning",
+    image: images.services.pipe,
     summary:
       "Acid flushing of water pipelines to clear scale, rust and deposits that reduce water flow.",
     points: [
@@ -73,7 +74,7 @@ export const services: Service[] = [
     titleKn: "ಜಲನಿರೋಧಕ ಗ್ರೌಟಿಂಗ್",
     icon: "grout",
     category: "Waterproofing",
-    image: images.hero.waterproofing,
+    image: images.services.grout,
     summary:
       "Seals cracks and joints in sumps, tanks, terraces and bathrooms to stop leaks and seepage.",
     points: [
@@ -89,7 +90,7 @@ export const services: Service[] = [
     titleKn: "ಜಲನಿರೋಧಕ ಬಣ್ಣ",
     icon: "paint",
     category: "Waterproofing",
-    image: images.hero.waterproofing,
+    image: images.services.paint,
     summary:
       "Waterproof coatings for terraces, walls, sumps and tanks to keep moisture out for years.",
     points: [
@@ -105,7 +106,7 @@ export const services: Service[] = [
     titleKn: "ಶೌಚಾಲಯ ಶುಚಿಗೊಳಿಸುವಿಕೆ",
     icon: "toilet",
     category: "Cleaning",
-    image: images.hero.deepCleaning,
+    image: images.services.toilet,
     summary:
       "Deep cleaning of toilets and bathrooms: stain, scale and odour removal.",
     points: [
