@@ -4,8 +4,9 @@ import { images } from "./images";
 // Business details used across the whole site. Edit here to update everywhere.
 // Values marked "placeholder" / "default" are awaiting confirmation from the client.
 
-// The site's main address (www.spbcivilworks.com redirects here, see next.config.ts).
-export const domain = "spbcivilworks.com";
+// The site's main address, matching the logo badge. Vercel redirects the bare
+// spbcivilworks.com here (Vercel → Project → Settings → Domains).
+export const domain = "www.spbcivilworks.com";
 
 // NEXT_PUBLIC_SITE_URL wins if set. Production uses the custom domain; Vercel preview
 // deployments use their own address; local development uses localhost.

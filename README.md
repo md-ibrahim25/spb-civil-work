@@ -79,7 +79,7 @@ These are defaults, marked "placeholder" in the content files:
 Customers leave a star rating and review at `/reviews` (linked from the menu, home page and
 service pages). **Nothing appears on the site until the client approves it.**
 
-- **Approve, hide or delete reviews:** open `https://spbcivilworks.com/admin/reviews`. The browser
+- **Approve, hide or delete reviews:** open `https://www.spbcivilworks.com/admin/reviews`. The browser
   asks for a login: any username, password = the `ADMIN_PASSWORD` environment variable.
 - **Where they're stored:** Upstash Redis, connected through Vercel → Storage
   (`UPSTASH_REDIS_REST_URL` / `KV_REST_API_URL` env vars). Code: `lib/reviews.ts`.
@@ -106,7 +106,8 @@ service pages). **Nothing appears on the site until the client approves it.**
 Hosted on Vercel (project `spb-civil-work`). Deploy with `vercel deploy --prod`, or connect the
 GitHub repo in Vercel for automatic deploys on every push to `main`.
 
-Domain: **spbcivilworks.com** (set as `domain` in `content/site.ts`); `www.` redirects to it
-(`next.config.ts`). Production builds use it for canonical URLs, the sitemap and share links.
+Domain: **www.spbcivilworks.com** (set as `domain` in `content/site.ts`, matching the logo).
+Vercel's domain settings redirect the bare `spbcivilworks.com` to it. Don't add a redirect in the
+other direction in code: the two would loop. Production builds use it for canonical URLs, the sitemap and share links.
 To override, set `NEXT_PUBLIC_SITE_URL`. For Search Console's HTML-tag verification, set
 `GOOGLE_SITE_VERIFICATION`.

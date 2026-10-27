@@ -3,15 +3,12 @@
 The website is ready for search engines. These steps happen in a browser and need the
 owner's Google account. Do them in this order.
 
-## 1. Connect the custom domain in Vercel (do this first)
+## 1. Custom domain (done)
 
-1. Vercel dashboard → project **spb-civil-work** → **Settings → Domains → Add**.
-2. Enter the domain (e.g. `spbcleaning.in`) and also add `www.spbcleaning.in`, set to redirect to the main one.
-3. Vercel shows DNS records (an `A` record for the root and a `CNAME` for `www`). Add them at the registrar where the domain was bought.
-4. Wait until Vercel shows **Valid Configuration**, then redeploy once (Deployments → latest → Redeploy).
-
-The site reads its address from Vercel automatically, so the sitemap, canonical tags and
-WhatsApp previews switch to the custom domain on that redeploy. No code change needed.
+**www.spbcivilworks.com** is the main address (it matches the logo). DNS at BigRock points to
+Vercel, and Vercel redirects the bare `spbcivilworks.com` to the `www` address
+(Vercel → spb-civil-work → Settings → Domains). Use the `www` address everywhere: Google
+Business Profile, Search Console, flyers, WhatsApp.
 
 ## 2. Google Business Profile (biggest impact for local search)
 
